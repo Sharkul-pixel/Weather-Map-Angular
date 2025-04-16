@@ -1,0 +1,15 @@
+.weather-icon {
+    width: 170px;
+    margin-top: 30px
+}
+
+.temp {
+    font-size: 80px;
+    font-weight: 500;
+}
+
+.city {
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: -10px;
+}

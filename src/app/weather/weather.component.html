@@ -1,0 +1,14 @@
+<app-search (search)="search($event)"></app-search>
+
+<!-- Weather Display -->
+<div>
+  <img [src]="imagePath" class="weather-icon" />
+  <h2 class="temp">{{ temp }}°F</h2>
+  <h3 class="city">{{ city }}</h3>
+
+  <app-weather-data
+    [feels_like]="feels_like"
+    [humidity]="humidity"
+    [wind_speed]="wind_speed"
+  ></app-weather-data>
+</div>

@@ -1,0 +1,38 @@
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.col img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.humidity, .wind .feels_like{
+    font-size: 28px;
+    margin-top: -6px;
+}
+
+.col:nth-child(1) {
+    /* Styles for the first div (left) */
+    margin-right: 30px;
+}
+
+.col:nth-child(2) {
+    /* Styles for the second div (center) */
+    margin: 0 auto;
+}
+
+.col:nth-child(3) {
+    /* Styles for the third div (right) */
+    margin-left: 30px;
+}
