@@ -2,6 +2,8 @@
 
 # Keys
 /environments
+environments/*.key
+environments/*.key.enc
 
 # Compiled output
 /dist
