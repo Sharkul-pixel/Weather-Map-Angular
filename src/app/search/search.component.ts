@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { WeatherService } from '../services/weather.service';
-import { debounceTime, distinct, distinctUntilChanged, Subject, switchMap } from 'rxjs';
+import { debounceTime, distinct, distinctUntilChanged, Subject, Subscription, switchMap } from 'rxjs';
 
 import { WeatherComponent } from '../weather/weather.component';
 
@@ -13,7 +13,8 @@ import { WeatherComponent } from '../weather/weather.component';
 export class SearchComponent {
   @Output() search: EventEmitter<string> = new EventEmitter();
   private searchTerms = new Subject<string>();
-
+  private searchSubscription?: Subscription;
+  
   constructor(private weatherService: WeatherService) {}
 
   
@@ -25,7 +26,7 @@ export class SearchComponent {
   }
       
   ngOnInit() {
-    this.searchTerms.pipe(
+    this.searchSubscription = this.searchTerms.pipe(
       debounceTime(300), // wait for 300ms pause in events
       distinctUntilChanged(), // ignore if next search term is same as previous
       switchMap((term: string) => this.weatherService.getWeather(term)) // switch to new observable each time the term changes
@@ -37,6 +38,10 @@ export class SearchComponent {
       
   }      
     
-
+  ngOnDestroy() {
+    if (this.searchSubscription) {
+      this.searchSubscription.unsubscribe(); // unsubscribe to prevent memory leaks
+    }
+  }
 
 }
