@@ -2,7 +2,7 @@
 
 # Keys
 # Ignore environment files
-src/environments/environment*.ts
+src/environments/environment*.ts 
 *.key
 *.key.enc
 
