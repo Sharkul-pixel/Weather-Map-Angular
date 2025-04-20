@@ -1,9 +1,10 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # Keys
-/environments
-environments/*.key
-environments/*.key.enc
+# Ignore environment files
+src/environments/environment*.ts
+*.key
+*.key.enc
 
 # Compiled output
 /dist
